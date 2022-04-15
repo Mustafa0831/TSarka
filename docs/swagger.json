@@ -1,0 +1,163 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Tsarka one love",
+        "title": "Tsarka",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/rest/counter/add/{num}": {
+            "post": {
+                "description": "Redis increment",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "counter"
+                ],
+                "summary": "Counter Add (increment)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Counter number",
+                        "name": "num",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/counter/sub/{num}": {
+            "post": {
+                "description": "Redis decrement",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "counter"
+                ],
+                "summary": "Counter Sub (decrement)",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Counter number",
+                        "name": "num",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/counter/val": {
+            "get": {
+                "description": "Redis get num",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "counter"
+                ],
+                "summary": "Counter Val",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/email/check": {
+            "post": {
+                "description": "Email Check",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "email"
+                ],
+                "summary": "Email Check",
+                "parameters": [
+                    {
+                        "description": "CheckRequest",
+                        "name": "CheckRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/http.CheckRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/email/iin": {
+            "post": {
+                "description": "IIN Check",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "email"
+                ],
+                "summary": "IIN Check",
+                "parameters": [
+                    {
+                        "description": "CheckRequest",
+                        "name": "CheckRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/http.CheckRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "http.CheckRequest": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
